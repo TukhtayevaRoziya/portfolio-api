@@ -45,7 +45,7 @@ function sendEmail(name, email, message) {
     from,
     to,
     subject,
-    html2,
+    html: html2,
   };
   transporter.sendMail(mailOption, (error, info) => {
     if (error) {
