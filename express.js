@@ -66,6 +66,7 @@ app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
   console.log(name, email, message);
   sendEmail(name, email, message);
+  res.json({ data: "OK", status: "success" });
 });
 
 app.get('/', (req, res) => {
