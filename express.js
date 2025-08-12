@@ -55,6 +55,9 @@ app.get('/', (req, res) => {
   res.send("Hello World");
 });
 
-app.listen(2300, () => {
-  console.log("Ofc working duh");
-});
+// app.listen(2300, () => {
+//   console.log("Ofc working duh");
+// });
+
+
+module.exports = app;
