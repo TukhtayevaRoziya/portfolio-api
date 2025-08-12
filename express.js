@@ -51,6 +51,10 @@ app.post("/api/contact", (req, res) => {
   sendEmail(name, email, message);
 });
 
+app.get('/', (req, res) => {
+  res.send("Hello World");
+});
+
 app.listen(2300, () => {
   console.log("Ofc working duh");
 });
