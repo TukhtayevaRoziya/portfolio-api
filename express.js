@@ -29,15 +29,32 @@ function sendEmail(name, email, message) {
   const template = handlebars.compile(
     fs.readFileSync(path.join(__dirname, "templates/", "feedbacks.hbs"), "utf8")
   );
+  const template2 = handlebars.compile(
+    fs.readFileSync(path.join(__dirname, "templates/", "tome.hbs"), "utf8")
+  );
 
   const html = template({ name, message });
+  const html2 = template2({ email, message });
   const mailOption = {
     from,
     to,
     subject,
     html,
   };
+  const mailOption2 = {
+    from,
+    to,
+    subject,
+    html2,
+  };
   transporter.sendMail(mailOption, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+  });
+
+  transporter.sendMail(mailOption2, (error, info) => {
     if (error) {
       return console.log(error);
     }
