@@ -34,7 +34,7 @@ function sendEmail(name, email, message) {
   );
 
   const html = template({ name, message });
-  const html2 = template2({ email, message });
+  const html2 = template2({ email, message, name });
   const mailOption = {
     from,
     to,
